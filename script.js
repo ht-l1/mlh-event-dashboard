@@ -1,6 +1,6 @@
 async function load() {
   // First, fetch events from the Google Apps Script API
-  const response = await fetch('https://script.google.com/macros/s/AKfycbx7GatmL_bnyS-g7ipK5dF_k9aUa0hGasF0Usue9oFxSbNsNmJ9uqu3gJuh56Ph1peOmA/exec');
+  const response = await fetch('https://script.google.com/macros/s/AKfycbwFy1_Q7NeI1qAn_VM0g4n0fTA_xJeTMaOl9w6FzobQkJ5bfURG9Bo0cql5pEtjNiRR/exec');
 
   const events = await response.json();
 
