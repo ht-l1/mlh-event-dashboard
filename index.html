@@ -1,27 +1,29 @@
-async function load() {
-  // First, fetch events from the Google Apps Script API
-  const response = await fetch('https://script.google.com/macros/s/AKfycbzm2gEZ-dgWcIXqSDQjO6S_yaUOIjBI3ZnuqO10D8nFk0Y6ec_7yaHfaLm1cX6f07wy/exec');
+<!DOCTYPE html>
+<html>
 
-  const events = await response.json();
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
 
-  const eventsContainer = document.getElementById('events-container');
-  eventsContainer.innerHTML = '';
-  
-  // Loop through events and place them on page
-  for (let event of events) {
-    eventsContainer.innerHTML += `
-      <div class="card w-72 bg-base-100 shadow-xl">
-        <figure><img src="${event.Image}" alt="${event.Name}" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">${event.Name}</h2>
-          <p>${event.Location}<br/>@ ${event.Date}</p>
-          <div class="card-actions justify-end">
-            <a class="btn btn-primary" href="${event.Link}" target="_blank">RSVP</a>
-          </div>
-        </div>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.0/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="hero h-72 bg-base-200">
+    <div class="hero-content text-center">
+      <div class="max-w-md">
+        <h1 class="text-5xl font-bold">MLH Events</h1>
+        <p class="py-6">Check out our upcoming member events around the world!</p>
       </div>
-    `
-  }
-}
+    </div>
+  </div>
 
-load();
+  <div id="events-container" class="min-h-screen bg-base-200 flex flex-wrap justify-center gap-8">
+    <span class="loading loading-ball loading-lg text-warning"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
